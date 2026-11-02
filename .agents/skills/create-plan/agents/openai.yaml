@@ -1,0 +1,4 @@
+interface:
+  display_name: "Create Plan"
+  short_description: "Create precise Taskin stage plans with file-level specs"
+  default_prompt: "Use $create-plan to prepare a detailed Taskin stage plan."

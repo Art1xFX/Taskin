@@ -1,0 +1,4 @@
+interface:
+  display_name: "Execute Plan"
+  short_description: "Read and execute Taskin stage plans through verification"
+  default_prompt: "Use $execute-plan to read and implement the selected Taskin stage plan."
