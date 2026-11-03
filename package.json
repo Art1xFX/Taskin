@@ -6,9 +6,10 @@
     "name": "Artiom Cozlovici",
     "email": "kozakovi4@outlook.com"
   },
-  "packageManager": "yarn@4.18.1",
+  "packageManager": "npm@10.9.9",
   "devDependencies": {
     "@devcontainers/cli": "^0.89.0",
+    "@tobilu/qmd": "git+https://github.com/tobi/qmd.git#04e4dbd8245c527a88f1a8f0bda547aef9ca81fb",
     "cspell": "^10.3.4",
     "prettier": "3.9.9",
     "prettier-plugin-toml": "3.0.2"

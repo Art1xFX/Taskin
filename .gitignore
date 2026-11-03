@@ -223,6 +223,8 @@ __marimo__/
 /.plans/
 
 # Node dependencies
-.venv/
-.yarn/
 node_modules/
+
+# Project-local QMD models and search index
+.qmd/cache/
+.qmd/index.sqlite*

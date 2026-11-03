@@ -25,6 +25,8 @@ RUN arch="$(dpkg --print-architecture)" \
     && rm -rf "${yq_package}" "${yq_binary}" checksums \
     && apt-get update \
     && apt-get install -y --no-install-recommends \
+        # Native QMD dependencies are compiled during dependency installation.
+        build-essential \
         # Additional utilities for AI agents and development.
         jq \
         ripgrep \

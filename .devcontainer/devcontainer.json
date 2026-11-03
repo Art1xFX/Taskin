@@ -18,17 +18,17 @@
       "version": "22"
     }
   },
-  "onCreateCommand": "sudo install -d -o vscode -g vscode /home/vscode/.uv /home/vscode/.uv/cache /home/vscode/.uv/venv /home/vscode/.cache /home/vscode/.cache/yarn",
+  "onCreateCommand": "sudo install -d -o vscode -g vscode /home/vscode/.uv /home/vscode/.uv/cache /home/vscode/.uv/venv /home/vscode/.cache /home/vscode/.cache/npm",
   "postCreateCommand": {
     "python": "uv sync --locked",
-    "js": "corepack yarn install --immutable",
+    "js": "npm ci",
     "commandhistory": "sudo chown -R $(whoami): /commandhistory" // cspell:disable-line
   },
   "remoteUser": "vscode",
   "containerEnv": {
     "UV_CACHE_DIR": "/home/vscode/.uv/cache",
     "UV_PROJECT_ENVIRONMENT": "/home/vscode/.uv/venv",
-    "YARN_CACHE_FOLDER": "/home/vscode/.cache/yarn"
+    "npm_config_cache": "/home/vscode/.cache/npm"
   },
   "remoteEnv": {
     "PATH": "${containerWorkspaceFolder}/node_modules/.bin:${containerEnv:PATH}"
@@ -41,8 +41,8 @@
       "type": "volume"
     },
     {
-      "source": "taskin-yarn-cache",
-      "target": "/home/vscode/.cache/yarn",
+      "source": "taskin-npm-cache",
+      "target": "/home/vscode/.cache/npm",
       "type": "volume"
     },
     {
@@ -71,9 +71,7 @@
           "editor.defaultFormatter": "charliermarsh.ruff" // cspell:disable-line
         },
         "ruff.importStrategy": "fromEnvironment",
-        "prettier.documentSelectors": [
-          "**/*.toml"
-        ],
+        "prettier.documentSelectors": ["**/*.toml"],
         "python-envs.defaultEnvManager": "ms-python.python:venv",
         "python-envs.defaultPackageManager": "ms-python.python:uv",
         "python-envs.alwaysUseUv": true,

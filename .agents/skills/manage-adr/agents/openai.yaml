@@ -1,0 +1,4 @@
+interface:
+  display_name: "Manage ADR"
+  short_description: "Maintain Taskin architecture decision records"
+  default_prompt: "Use $manage-adr to create or update the requested Taskin architecture decision records."

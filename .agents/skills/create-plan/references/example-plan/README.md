@@ -22,7 +22,7 @@ This is a fictional format example, not a stage selected for implementation in T
 | `packages/core` | `packages/core/src/taskin_core` | [Core](packages/core.md) |
 | `services/coding-agent` | `services/coding-agent/src/taskin_coding_agent` | [Coding-Agent](services/coding-agent.md) |
 
-The [Core plan](packages/core.md#codingrunlabel) owns the shared definition, and the [Coding-Agent plan](services/coding-agent.md#format_run_label) describes its consumer. Decision rationale is in [ADR](ADR.md#20261103-0001-0001).
+The [Core plan](packages/core.md#codingrunlabel) owns the shared definition, and the [Coding-Agent plan](services/coding-agent.md#format_run_label) describes its consumer.
 
 ## Implementation order
 

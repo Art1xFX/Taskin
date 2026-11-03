@@ -1,0 +1,9 @@
+interface:
+  display_name: "Search ADR"
+  short_description: "Find Taskin architecture decisions with QMD search"
+  default_prompt: "Use $search-adr to find the architecture decisions relevant to this question."
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "qmd"
+      description: "Project-local search over Taskin ADR Markdown files"

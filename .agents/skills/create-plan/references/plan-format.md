@@ -7,7 +7,6 @@ Write documents in English and discuss them with the user in Russian. This forma
 ```text
 .plans/YYYYMMDD-NNNN/
 ├── README.md
-├── ADR.md
 ├── services/
 │   └── coding-agent.md
 ├── packages/
@@ -15,7 +14,7 @@ Write documents in English and discuss them with the user in Russian. This forma
 └── .done
 ```
 
-README and ADR are required. Include service/package documents only for affected projects and name each file after its repository directory, without the distribution's `taskin-` prefix. There is no `projects/` directory or separate contract or verification file. Empty `services/` or `packages/` directories are unnecessary.
+README is required. Include service/package documents only for affected projects and name each file after its repository directory, without the distribution's `taskin-` prefix. There is no `projects/` directory or separate contract or verification file. Empty `services/` or `packages/` directories are unnecessary. Use `$manage-adr` for architecture decision records and `$search-adr` for relevant decision lookup within the authorized plan scope. Those skills own ADR format and lifecycle.
 
 `.done` is absent during planning and partial implementation. Full successful execution creates it as an empty regular file. Changing existing plan content requires prior user confirmation of the concrete amendment. Removing a completed stage's marker requires a confirmed reopening or marker correction. Creating the completion marker after authorized successful full execution is already part of the agreed lifecycle.
 
@@ -42,19 +41,6 @@ Use these H2 sections:
 If repository-wide files such as the root `pyproject.toml`, `uv.lock` or Compose configuration change, add `Repository files` to the README. Use H3 headings with their exact repository-relative paths, a purpose paragraph, and precise changes. This covers workspace files without pretending they belong to one service or adding another plan-file category.
 
 Add `Open questions` only if requirements remain unresolved. Identify what those questions block. Do not present those affected parts as implementation-ready. Link to the current ADR where relevant and to shared definitions in their owning project's document.
-
-## ADR.md
-
-ADR is a required plan artifact but is read only when a required rule is delegated to a decision, a conflict needs its rationale or a decision amendment is proposed. The executable behavior normally belongs in README and project specifications. A link alone, including an entry link, does not make ADR mandatory reading when that behavior is already clear. When allocating IDs or amending decisions, inspect the necessary registry/entries only.
-
-- H1 is exactly `ADR`.
-- H2 `Registry` contains a table with exactly `ID`, `Title`, `Status`, `Date` columns. ID and status values are in backticks.
-- Each entry's H2 contains only its full ID in backticks, for example `20261103-0001-0001`. IDs are `<plan-id>-<four-digit-decision-number>`; the final number is unique inside this plan. Keep assigned IDs stable.
-- Under each entry use list items with bold `Title:`, `Date:`, `Status:`, `Replaces:`, `Replaced by:` labels. Use status `Accepted` or `Superseded` in backticks. With no replacement use `None`; with replacements use a nested list of Markdown links.
-- Only H3 `Context` and `Solution` follow. Context explains the problem and constraints; Solution explains the selected behavior and its rationale. Put all necessary consequences or alternative reasoning in these sections, without introducing extra headings.
-- Same-plan links use `#<full-id>`. Historical links use `[<full-id>](/.plans/<plan-id>/ADR.md#<full-id>)` and are metadata only. The `/.plans/` prefix denotes the repository root, not the operating system's root.
-- On a confirmed amendment, supersede an entry by preserving its rationale, marking it `Superseded`, and adding the new entry and same-plan replacement links. For a replacement from another plan, record only the historical reference supplied by the user or current plan. Do not open that older plan or update its backlink.
-- If no new decision is needed, keep the Registry header and empty table without inventing an entry.
 
 ## Service and package documents
 
