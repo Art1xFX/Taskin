@@ -1,0 +1,16 @@
+{
+  "name": "taskin",
+  "description": "Self-hosted AI teammate powered by Codex. Takes on Redmine tasks, writes code, opens GitLab merge requests, and chats on Telegram.",
+  "private": true,
+  "author": {
+    "name": "Artiom Cozlovici",
+    "email": "kozakovi4@outlook.com"
+  },
+  "packageManager": "yarn@4.18.1",
+  "devDependencies": {
+    "@devcontainers/cli": "^0.89.0",
+    "cspell": "^10.3.4",
+    "prettier": "3.9.9",
+    "prettier-plugin-toml": "3.0.2"
+  }
+}

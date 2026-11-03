@@ -221,3 +221,8 @@ __marimo__/
 
 # Local implementation plans
 /.plans/
+
+# Node dependencies
+.venv/
+.yarn/
+node_modules/
