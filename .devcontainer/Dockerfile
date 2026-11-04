@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/devcontainers/base@sha256:1f851004adcd3dff3776b4a1da86727cf52280b0fdc9d5b0568c9c7d74274286
+FROM mcr.microsoft.com/devcontainers/base:debian13@sha256:71b6fe7c4e07ec747a94a72b2a17f2f8c286eaa7b1c59862888df764efb8b6c6
 
 # cspell:disable
 RUN SNIPPET="export PROMPT_COMMAND='history -a' && export HISTFILE=/commandhistory/.bash_history" \
@@ -9,6 +9,7 @@ RUN SNIPPET="export PROMPT_COMMAND='history -a' && export HISTFILE=/commandhisto
 # cspell:enable
 
 ARG YQ_VERSION=4.53.6
+ARG CUDA_VERSION=13-1
 
 # cspell:disable-next-line
 RUN arch="$(dpkg --print-architecture)" \
@@ -30,6 +31,18 @@ RUN arch="$(dpkg --print-architecture)" \
         # Additional utilities for AI agents and development.
         jq \
         ripgrep \
+    # Install QMD's CUDA runtime on amd64; other architectures retain the CPU backend.
+    && if [ "$arch" = amd64 ]; then \
+        curl -fsSL \
+            "https://developer.download.nvidia.com/compute/cuda/repos/debian13/x86_64/cuda-keyring_1.1-1_all.deb" \
+            -o /tmp/cuda-keyring.deb \
+        && dpkg -i /tmp/cuda-keyring.deb \
+        && rm /tmp/cuda-keyring.deb \
+        && apt-get update \
+        && apt-get install -y --no-install-recommends \
+            "cuda-cudart-${CUDA_VERSION}" \
+            "libcublas-${CUDA_VERSION}"; \
+    fi \
     && rm -rf /var/lib/apt/lists/* \
     # Verify the installed yq version.
     && yq --version

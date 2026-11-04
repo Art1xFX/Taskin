@@ -4,6 +4,9 @@
     "dockerfile": "Dockerfile",
     "context": ".."
   },
+  "hostRequirements": {
+    "gpu": "optional"
+  },
   "features": {
     "ghcr.io/devcontainers/features/python:1.8.0": {
       "version": "3.14"
