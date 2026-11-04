@@ -14,11 +14,11 @@ Write documents in English and discuss them with the user in Russian. This forma
 └── .done
 ```
 
-README is required. Include service/package documents only for affected projects and name each file after its repository directory, without the distribution's `taskin-` prefix. There is no `projects/` directory or separate contract or verification file. Empty `services/` or `packages/` directories are unnecessary. Use `$manage-adr` for architecture decision records and `$search-adr` for relevant decision lookup within the authorized plan scope. Those skills own ADR format and lifecycle.
+README is required. Include service/package documents only for affected projects and name each file after its repository directory, without the distribution's `taskin-` prefix. There is no `projects/` directory or separate contract or verification file. Empty `services/` or `packages/` directories are unnecessary. Use `$manage-adr` for architecture decision records and `$search-adr` for relevant decision lookup within the selected plan and project ADRs in `.adr/`. Decisions belonging to the stage remain in its plan ADRs; decisions established outside plans belong in `.adr/`. Those skills own ADR format and lifecycle.
 
 `.done` is absent during planning and partial implementation. Full successful execution creates it as an empty regular file. Changing existing plan content requires prior user confirmation of the concrete amendment. Removing a completed stage's marker requires a confirmed reopening or marker correction. Creating the completion marker after authorized successful full execution is already part of the agreed lifecycle.
 
-Read only the selected current plan. Previous/sibling plans and historical ADR links must not be opened or modified. Listing plan directory names for ID allocation or selection is allowed. Keep required current-stage context self-contained; refer to current code or ask the user when a necessary fact is unavailable.
+Read only the selected current plan and any relevant project ADRs in `.adr/`. Previous/sibling plans and their historical ADR links must not be opened or modified. Listing plan directory names for ID allocation or selection is allowed. Keep required current-stage context self-contained; refer to current code, relevant project decisions or ask the user when a necessary fact is unavailable. A project ADR does not change the selected plan's scope or completion criteria without a confirmed amendment.
 
 ## README.md
 
@@ -40,7 +40,7 @@ Use these H2 sections:
 
 If repository-wide files such as the root `pyproject.toml`, `uv.lock` or Compose configuration change, add `Repository files` to the README. Use H3 headings with their exact repository-relative paths, a purpose paragraph, and precise changes. This covers workspace files without pretending they belong to one service or adding another plan-file category.
 
-Add `Open questions` only if requirements remain unresolved. Identify what those questions block. Do not present those affected parts as implementation-ready. Link to the current ADR where relevant and to shared definitions in their owning project's document.
+Add `Open questions` only if requirements remain unresolved. Identify what those questions block. Do not present those affected parts as implementation-ready. Link to the current plan or project ADR where relevant and to shared definitions in their owning project's document. Reference existing project decisions instead of copying them into a second ADR in the plan.
 
 ## Service and package documents
 

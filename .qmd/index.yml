@@ -1,5 +1,11 @@
 collections:
-  taskin-adrs:
+  taskin-project-adrs:
+    path: .adr
+    pattern: "*/README.md"
+    includeByDefault: true
+    context:
+      /: Taskin project-wide architecture decisions established outside plans. Verify status and replacement links in the source.
+  taskin-plan-adrs:
     path: .plans
     pattern: "*/adr/*/README.md"
     includeByDefault: true

@@ -1,7 +1,7 @@
 interface:
   display_name: "Search ADR"
-  short_description: "Find Taskin architecture decisions with QMD search"
-  default_prompt: "Use $search-adr to find the architecture decisions relevant to this question."
+  short_description: "Find project and stage decisions with QMD search"
+  default_prompt: "Use $search-adr to find relevant project and authorized stage architecture decisions."
 dependencies:
   tools:
     - type: "mcp"

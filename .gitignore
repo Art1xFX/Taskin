@@ -219,8 +219,9 @@ __marimo__/
 # Streamlit
 .streamlit/secrets.toml
 
-# Local implementation plans
+# Local implementation plans and architecture decisions
 /.plans/
+/.adr/
 
 # Node dependencies
 node_modules/
@@ -228,3 +229,4 @@ node_modules/
 # Project-local QMD models and search index
 .qmd/cache/
 .qmd/index.sqlite*
+.qmd-embed.lock

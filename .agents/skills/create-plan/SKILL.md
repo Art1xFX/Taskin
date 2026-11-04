@@ -11,7 +11,8 @@ Communicate in Russian and write plan documents in English. Read [the canonical 
 
 - Read the repository README, relevant code and configuration, and the READMEs of affected projects and direct dependencies whose contracts matter.
 - Find and obey every applicable `AGENTS.md` along ancestor paths to files being planned or edited, including intermediate and nested directories. Do not scan unrelated projects merely to collect instructions.
-- When amending a selected existing plan, read its README, affected project documents and relevant definitions inside that same plan. Use `$search-adr` only when architectural rationale or a delegated decision is needed, restricting lookup to the selected plan. Delegate decision creation or amendment to `$manage-adr` within the same authorized scope and confirmation rules.
+- When amending a selected existing plan, read its README, affected project documents and relevant definitions inside that same plan. Use `$search-adr` when architectural rationale or a delegated decision is needed, limiting lookup to this plan and relevant project ADRs in `.adr/`. Delegate decision creation or amendment to `$manage-adr` within the same authorized scope and confirmation rules.
+- Record decisions belonging to this stage in its plan ADRs. When a decision is established in conversation outside a plan, capture it through `$manage-adr` in `.adr/` without creating a stage. Record agreed decisions rather than proposals or assumptions, and reference existing project ADRs instead of duplicating them in the plan. A project ADR does not authorize changing existing stage requirements.
 - Do not open previous or sibling plans, even through ADR or contract links. Listing `.plans/` directory names to allocate or select an ID is allowed; reading other plans' contents is not. Historical links are metadata only. Use current repository documents, current code and the user's context for established behavior.
 - If the current plan depends on missing information, ask for it; do not recover it by reading another plan or silently inventing requirements.
 
@@ -28,7 +29,7 @@ Communicate in Russian and write plan documents in English. Read [the canonical 
 
 Before changing any existing plan document, show the user the concrete proposed changes, affected files and their effect on scope or completion criteria, then wait for confirmation. This includes wording corrections, file renames or deletions, ADR changes and adding check results. A broad request to review, refine or execute a plan does not approve an unseen amendment. A concrete change already explicitly confirmed in this conversation does not need another confirmation.
 
-Apply only the confirmed changes, keeping the plan ID and unrelated content. If the confirmed amendment reopens a completed stage, include removal of its `.done` marker in the proposal and remove it only after that reopening is confirmed. A wording-only correction does not reopen the stage. Keep delegated ADR work within the selected plan and the confirmed changes.
+Apply only the confirmed changes, keeping the plan ID and unrelated content. If the confirmed amendment reopens a completed stage, include removal of its `.done` marker in the proposal and remove it only after that reopening is confirmed. A wording-only correction does not reopen the stage. Keep delegated plan ADR work within the selected plan and the confirmed changes; capture independent project decisions separately through `$manage-adr`.
 
 ## Check and finish
 
@@ -36,4 +37,4 @@ Apply only the confirmed changes, keeping the plan ID and unrelated content. If 
 - Check same-plan links, shared-definition ownership, implementation order, expected check outcomes and completion criteria. Delegate ADR validation to `$manage-adr`. Do not follow cross-plan links while checking references.
 - Put unresolved decisions in the current README's `Open questions` section and explain the affected scope. A plan with unresolved required behavior is not ready for that part of implementation.
 - Never create `.done` during planning. Do not implement a stage merely because its plan was requested. If implementation was also authorized, continue with the execution workflow after planning; an existing-plan amendment still needs its concrete confirmation.
-- Report the plan ID, affected projects, readiness and remaining decisions in Russian. Do not create or update the repository's architecture documentation as an incidental part of this workflow.
+- Report the plan ID, affected projects, readiness and remaining decisions in Russian. Include any project ADR IDs captured from decisions established outside the plan; do not create unrelated architecture documentation.

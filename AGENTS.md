@@ -16,6 +16,11 @@
   [execute-plan](.agents/skills/execute-plan/SKILL.md) when implementing a selected plan.
 - Use [manage-adr](.agents/skills/manage-adr/SKILL.md) for decision records and
   [search-adr](.agents/skills/search-adr/SKILL.md) when architectural rationale or decision history is needed.
+- Record architectural decisions established with the user outside a plan in the project-wide `.adr/` directory through
+  `manage-adr` as part of the ongoing task. Do not require a stage or another recording request. Proposals and assumptions
+  are not accepted decisions. Decisions belonging to a stage remain in that plan's ADRs; avoid duplicate records.
+- Keep `.adr/` ignored by Git and indexed by QMD alongside plan ADRs. Consult relevant project ADRs during planning and
+  implementation, without loading all decisions routinely. A project ADR does not authorize changing an existing plan.
 - Read only the skill relevant to the task and any resources it requires. The skills own their document formats and
   workflows; do not introduce competing templates here or load ADRs routinely.
 - Preserve the selected plan's reading and amendment restrictions. Planning and execution do not authorize reading older
